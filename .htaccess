@@ -1,0 +1,16 @@
+# Disable directory listing
+Options -Indexes
+
+# Protect .env file
+<Files ~ "^\.env">
+Order deny,allow
+Deny from all
+</Files>
+
+# Basic SPA routing
+RewriteEngine On
+RewriteBase /betwinner_hosting_update/
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /betwinner_hosting_update/index.html [L]
